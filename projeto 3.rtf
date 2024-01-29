@@ -1,0 +1,35 @@
+Testando Api do aplicativo Urban scooter.
+
+Foram Analisados os requisitos e testado a Api no aplicativo Postman.
+
+ As seguintes funcionalidades foram testadas:
+
+Adicionar produtos a um kit.
+ O endpoint é POST /api/v1/kits/{id}/products
+
+Adicionar produtos ao carrinho. 
+O endpoint é PUT /api/v1/orders/:id
+
+Receber uma lista de produtos adicionados ao carrinho. 
+O endpoint é GET /api/v1/orders/:id
+
+Excluir o carrinho. 
+O endpoint é DELETE /api/v1/orders/:id 
+
+Verificar se o serviço de entrega Order and Go está disponível e quanto custa.
+ O endpoint é POST /order-and-go/v1/delivery
+
+ Preparando uma checklist para abordar a funcionalidade.
+analisado requisitos para serem testados.
+
+obs: 
+No endpoint Trabalho com o carrinho, foi necessário adicionar um cabeçalho de autenticação para um usuário recentemente criado e Usar token fornecido na mensagem de resposta ao fazer POST /api/v1/users e adicionar ao cabeçalho: 
+Chave — Authorization 
+ Valor — Bearer Token
+
+cheklist foi realizada de acordo com requisitos, incluindo testes negativos e positivos.
+
+cheklist criada e testada link :
+ https://docs.google.com/spreadsheets/d/1nflxs0rW8_jNBEYQHRanNJFqNckJeBpc/edit?usp=sharing&ouid=116259215055925948735&rtpof=true&sd=true
+
+Foi Testada a API através do Postman e relatórios de bug ao Jira foram enviados com resultados reprovados.
