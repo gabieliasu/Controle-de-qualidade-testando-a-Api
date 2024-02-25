@@ -1,0 +1,44 @@
+Receber produtos que estão no carrinho GET /api/v1/orders/:id				
+"Adicionar requisição com id válido
+''/api/v1/orders/3''"	Código de resposta e status 200 OK			PASSED
+				
+				
+				
+"Adicionar requisição com id inexistente na url
+''/api/v1/orders/444''"	Codigo da resposta e status 404 not found			PASSED
+				
+				
+				
+"Adicionar requisição com id válido
+''/api/v1/orders/3'' sem autorização "	Código de resposta e status 200 OK			PASSED
+				
+				
+				
+"Adicionar requisição com com letras
+''/api/v1/orders/aj''"	Codigo da resposta e status 400 bad request			PASSED
+				
+				
+Excluir carrinho DELETE /api/v1/orders/:id				
+"Excluir carrinho com id válido
+''/api/v1/orders/6''"	RE: Código de resposta e status 200 OK	RR: Codigo da resposta 404 not found	https://gabriellesprint2.atlassian.net/browse/GAB-11	FAILED
+				
+				
+				
+"Excluir carrinho com id inexistente
+''/api/v1/orders/444''"	Codigo da resposta 404 not found			PASSED
+				
+				
+				
+"Excluir carrinho com o id vazio
+
+
+"	Codigo da resposta e status 400 bad request			PASSED
+				
+				
+				
+"Excluir carrinho que ja foi deletado
+
+
+"	Codigo da resposta 400 bad request			bloqueado
+				
+				
