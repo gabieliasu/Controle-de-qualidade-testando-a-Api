@@ -1,0 +1,123 @@
+	Adicionar alimentos ao carrinho PUT /api/v1/orders/:id	
+
+	Enviar requisição sem body	
+RE:Codigo da resposta e status 400 bad request	
+RR: codigo da resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-9	FAILED
+					
+					
+					
+	"Enviar requisição com entradas válidas 
+{
+    ""productsList"": [
+        {
+            ""id"": 3,
+            ""quantity"": 3
+        }
+    ]
+}"	Código de resposta e status 200 OK			PASSED
+					
+					
+					
+	"Adicionar itens ao kit com body sem id
+{
+    ""productsList"": [
+        {
+            ""quantity"": 6
+        }
+    ]
+}"	RE:Código de resposta e status 400 bad request	
+RR:codigo e status da resposta 409	https://gabriellesprint2.atlassian.net/browse/GAB-22	FAILED
+					
+					
+					
+	"Adicionar itens ao kit com body sem quantity
+{
+    ""productsList"": [
+        {
+            ""id"": 3
+        }
+    ]
+}"	RE:Código de resposta e status 400 bad request
+RR:Código de resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-10	FAILED
+					
+			lista é exibida		
+					
+
+
+"Validar se ao adicionar um item ao kit que já esteja previamente adicionado, a quantidade do item solicitado é acrescentado sem adicionar o item novamente ao kit.
+{
+    ""productsList"": [
+        {
+            ""id"": 7,
+            ""quantity"": 10
+        }
+    ]
+}"	Código de resposta e status 200 OK			PASSED
+					
+		lista é exibida acrecentado 10 itens ao kit			
+
+
+
+	"Adicionar itens ao carrinho com id inexistente na url /api/v1/orders/9999"	
+Código de resposta e status 404 not found			PASSED
+					
+					
+					
+	"Enviar requisição Post com parametro ''quantity'' com o valor 31 
+{
+    ""productsList"": [
+        {
+            ""id"": 9,
+            ""quantity"":31
+        }
+    ]
+}"	Código de resposta e status 409 conflict			PASSED
+					
+		"{
+    ""code"": 409,
+    ""message"": ""Não há depósito para processar
+ o seu pedido""
+}"			
+
+
+
+	"Adicionar itens ao kit com ''id'' e ''quantity'' 0
+{
+  ""productsList"": [
+    {
+      ""id"": 0,
+      ""quantity"": 0
+    }
+  ]
+}"	Código de resposta e status 409 conflict			PASSED
+					
+		"{
+    ""code"": 409,
+    ""message"": ""Não há depósito para processar o seu pedido""
+}"			
+					
+
+
+"Enviar requisição PUT com letras latinas para adicionar alimentos no carrinho  
+{
+    ""productsList"": [
+        {
+            ""id"": A,
+            ""quantity"": b
+        }
+    ]
+}"	Codigo da resposta e status 400 bad request			PASSED
+					
+					
+					
+	"Enviar requisição PUT com entradas com símbolos para adicionar alimentos no carrinho  
+{
+    ""productsList"": [
+        {
+            ""id"": A,
+            ""quantity"": b
+        }
+    ]
+}"	Codigo da resposta e status 400 bad request			PASSED
+					
+					
