@@ -1,0 +1,437 @@
+Verificar se o serviço de entrega Order and Go está disponível POST /order-and-go/v1/delivery				
+				
+"Enviar solicitação POST com todas as entradas válidas
+ {
+    ""deliveryTime"": 9,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+
+
+
+"			
+				
+"Enviar solicitação POST sem ''delivery time''
+ {
+    
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	RE: Codigo da resposta e status 400 bad request	RR: "Código de resposta e status 200 OK
+{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}"	https://gabriellesprint2.atlassian.net/browse/GAB-17	FAILED
+
+
+
+				
+"Enviar solicitação POST sem ''productscount''
+ {
+    
+    ""delivery time"": 9,
+    ""productsWeight"": 2
+}"	RE: Codigo da resposta e status 400 bad request	RR: "Código de resposta e status 200 OK
+{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}"	https://gabriellesprint2.atlassian.net/browse/GAB-18	FAILED
+
+
+				
+"Enviar solicitação POST sem ''productsWeight''
+ {
+    
+    ""delivery time"": 9, 
+   ""productsCount"": 8
+   
+}"	RE:Codigo da resposta e status 400 bad request	RR: Código de resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-19	FAILED
+		"{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}"		
+
+
+				
+Enviar solicitação sem body	RE:Codigo da resposta e status 400 bad request	RR:Código de resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-20	FAILED
+		"{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}"		
+
+				
+"Enviar solicitação testando limites de 07 horas 
+ {
+    ""deliveryTime"": 7,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	RE:Codigo da resposta e status 400 bad request	RR: Código de resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-23	FAILED
+	  "isItPossibleToDeliver": false	"{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 5
+}"		
+
+
+				
+"Enviar solicitação testando limites de 08 horas 
+ {
+    ""deliveryTime"": 8,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+
+
+				
+"Enviar solicitação testando limites de 09 horas 
+ {
+    ""deliveryTime"": 9,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+
+
+
+"Enviar solicitação testando limites de 21 horas 
+ {
+    ""deliveryTime"": 21,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+				
+
+
+
+"Enviar solicitação testando limites de 22 horas 
+ {
+    ""deliveryTime"": 22,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+
+
+				
+				
+"Enviar solicitação testando limites de 23 horas 
+ {
+    ""deliveryTime"": 23,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	RE: "Codigo da resposta e status 400 bad request
+  ""isItPossibleToDeliver"": false"	RR: "Código de resposta e status 200 OK
+""{
+    """"name"""": """"Order and Go"""",
+    """"isItPossibleToDeliver"""": true,
+    """"hostDeliveryCost"""": 3,
+    """"toBeDeliveredTime"""": {
+        """"min"""": 20,
+        """"max"""": 25
+    },
+    """"clientDeliveryCost"""": 5
+}"""	https://gabriellesprint2.atlassian.net/browse/GAB-24	FAILED
+
+
+				
+"Enviar solicitação testando limites de -1 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": -1,
+    ""productsWeight"": 2
+}"	RE:Codigo da resposta e status 400 bad request	RR:"Código de resposta e status 200 OK
+{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 5
+}"	https://gabriellesprint2.atlassian.net/browse/GAB-25	FAILED
+
+
+				
+"Enviar solicitação testando limites de 0 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 0,
+    ""productsWeight"": 2
+}"	RE: Codigo da resposta e status 400 bad request	RR:"Código de resposta e status 200 OK
+{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 5
+}"	https://gabriellesprint2.atlassian.net/browse/GAB-26	FAILED
+
+
+				
+"Enviar solicitação testando limites de 1 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 1,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 3
+ ""clientDeliveryCost"": 0"			
+
+
+				
+"Enviar solicitação testando limites de 8 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 3
+ ""clientDeliveryCost"": 0"			
+
+
+				
+"Enviar solicitação testando limites de 9 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 9,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 3
+""clientDeliveryCost"": 0"			
+
+
+				
+"Enviar solicitação testando limites de 10 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 10,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 5
+""clientDeliveryCost"": 0"		
+
+
+				
+"Enviar solicitação testando limites de 11 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 11,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 5
+""clientDeliveryCost"": 0"			
+
+
+
+"Enviar solicitação testando limites de 14 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 14,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 5
+""clientDeliveryCost"": 0"			
+
+
+
+"Enviar solicitação testando limites de 15 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 15,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 5
+""clientDeliveryCost"": 0"		
+
+
+				
+"Enviar solicitação testando limites de 16 itens 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 16,
+    ""productsWeight"": 2
+}"	Código de resposta e status 200 OK			PASSED
+	"""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 5"			
+
+
+				
+"Enviar solicitação testando limites de -1 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": -1
+}"	RE:Codigo da resposta e status 400 bad request	RR:"Código de resposta e status 200 OK
+{
+""name"": ""Order and Go"",
+""isItPossibleToDeliver"": true,
+""hostDeliveryCost"": 3,
+""toBeDeliveredTime"": {
+""min"": 20,
+""max"": 25
+},
+""clientDeliveryCost"": 0
+}"	https://gabriellesprint2.atlassian.net/browse/GAB-35	FAILED
+
+
+				
+"Enviar solicitação testando limites de 0 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": -1
+}"	RE:Codigo da resposta e status 400 bad request  RR:	"Código de resposta e status 200 OK
+{
+""name"": ""Order and Go"",
+""isItPossibleToDeliver"": true,
+""hostDeliveryCost"": 3,
+""toBeDeliveredTime"": {
+""min"": 20,
+""max"": 25
+},
+""clientDeliveryCost"": 0,
+}"	https://gabriellesprint2.atlassian.net/browse/GAB-36	FAILED
+
+
+
+"Enviar solicitação testando limites de 1 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": 1
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 3
+ ""clientDeliveryCost"": 0"			
+
+
+
+"Enviar solicitação testando limites de 2.9 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": 2.9
+}"	Código de resposta e status 200 OK			PASSED
+				
+
+
+,
+"Enviar solicitação testando limites de 3 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": 3
+}"	Código de resposta e status 200 OK			PASSED
+				
+				
+				
+"Enviar solicitação testando limites de 3.1 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": 3.1
+}"	RE: Código de resposta e status 200 OK	RR: Código de resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-39	FAILED
+	"hostDeliveryCost: 5
+"	hostDeliveryCost: 3		
+
+
+				
+"Enviar solicitação testando limites de 4 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": 4
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 5
+"			
+
+
+
+				
+"Enviar solicitação testando limites de 5 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": 5
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 5
+"			
+
+
+				
+"Enviar solicitação testando limites de 6 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": 5
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 5
+"			
+
+
+
+"Enviar solicitação testando limites de 7 kg
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 2,
+    ""productsWeight"": 7
+}"	Código de resposta e status 200 OK			PASSED
+	"hostDeliveryCost: 5
+""clientDeliveryCost"": 5"		
+
+
+				
+"Enviar solicitação testando limites de peso e itens zerado 
+ {
+    ""deliveryTime"": 20,
+    ""productsCount"": 0,
+    ""productsWeight"": 0
+}"	RE: Código de resposta e status 400 bad request	RR: Código de resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-40	FAILED
+	"isItPossibleToDeliver": false	"{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}"		
