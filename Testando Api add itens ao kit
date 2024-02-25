@@ -35,7 +35,7 @@ https://gabriellesprint2.atlassian.net/browse/GAB-16	FAILED
 					
 					
 					
-	"Enviar requisição Post para adicionar itens ao carrinho com id inexistente ''376'' na url /api/v1/kits/{id}/products"	
+"Enviar requisição Post para adicionar itens ao carrinho com id inexistente ''376'' na url /api/v1/kits/{id}/products"	
     Codigo da resposta e status 404 not found			PASSED
 
 
