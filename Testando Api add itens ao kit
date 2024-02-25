@@ -1,0 +1,147 @@
+       Adicionar itens ao kit POST /api/v1/kits/{id}/products		
+         
+	"Enviar requisição Post com todas entradas válidas para criação de um produto dentro de um kit  
+{
+    ""productsList"": [
+        {
+            ""id"": 4,
+            ""quantity"": 3
+        }
+    ]
+}"	
+  Código de resposta e status 200 OK	
+		Não há erros na estrutura da resposta.	
+		produto adicionado ao kit	 PASSED
+  
+ Enviar requisição Post com caractere especial na url ''/api/v1/kits/#/products'' 
+  RE: Codigo da resposta e status 404 not found	
+  RR:Código de resposta e status 400 bad request	
+
+https://gabriellesprint2.atlassian.net/browse/GAB-42	FAILED
+				
+				
+ Enviar requisição Post com id negativo ''-1'' na url ''/api/v1/kits/-1/products'' 
+  Codigo da resposta e status 404 not found			PASSED
+				
+				
+Enviar requisição Post com id vazio na url ''/api/v1/kits/products'' 	
+  Codigo da resposta e status 400 bad request			PASSED
+	Não há erros na estrutura da resposta			
+
+Enviar requisição para adicionar itens ao kit com body vazio 	
+RE: Codigo da resposta e status 400 bad request	
+RR: Codigo e status da resposta 200 ok	
+https://gabriellesprint2.atlassian.net/browse/GAB-16	FAILED
+					
+					
+					
+	"Enviar requisição Post para adicionar itens ao carrinho com id inexistente ''376'' na url /api/v1/kits/{id}/products"	
+    Codigo da resposta e status 404 not found			PASSED
+
+
+"Enviar requisição Post com parametro ''quantity'' com o valor 31 
+{
+    ""productsList"": [
+        {
+            ""id"": 9,
+            ""quantity"":31
+        }
+    ]
+}"
+  RE: Codigo da resposta deveria ser 400 bad request	
+ RR:Status a resposta é 200 ok	
+
+https://gabriellesprint2.atlassian.net/browse/GAB-3	FAILED
+		Uma lista de produtos aparece		
+				
+				
+"Enviar requisição Post para adicionar itens ao kit com ''id'' e ''quantity'' 0
+{
+  ""productsList"": [
+    {
+      ""id"": 0,
+      ""quantity"": 0
+    }
+  ]
+}"	
+  RE: Codigo da resposta e status 400 bad request
+  RR: Status a resposta é 200 ok	https://gabriellesprint2.atlassian.net/browse/GAB-4	FAILED
+		Uma lista de produtos aparece		
+				
+				
+"Enviar requisição Post adicionar itens ao kit com body sem quantity
+{
+    ""productsList"": [
+        {
+            ""id"": 2
+        }
+    ]
+}"	
+  RE: Codigo da resposta e status 400 bad request	
+  
+  RR: Codigo da resposta e status 500 internal server erro
+  https://gabriellesprint2.atlassian.net/browse/GAB-8	FAILED
+		"
+{
+    ""code"": 500,
+    ""message"": ""invalid input syntax for integer: 
+\""NaN\""""
+}
+
+"		
+
+	"Enviar requisição Post para adicionar itens ao kit com body sem id
+{
+    ""productsList"": [
+        {
+            ""quantity"": 6
+        }
+    ]
+}"	RE: Codigo da resposta e status 400 bad request	
+  RR: codigo da resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-7	FAILED
+			"{
+    ""id"": 14,
+    ""name"": ""RAMOS"",
+    ""productsList"": [
+        {
+            ""quantity"": 9
+        }
+    ],
+    ""productsCount"": 9
+}"		
+					
+					
+	"Enviar requisição Post com letras latinas para criação de um produto dentro de um kit  
+{
+    ""productsList"": [
+        {
+            ""id"": A,
+            ""quantity"": b
+        }
+    ]
+}"	Codigo da resposta e status 400 bad request			PASSED
+					
+					
+					
+	"Enviar requisição Post com caracteres especiais para criação de um produto dentro de um kit  
+{
+    ""productsList"": [
+        {
+            ""id"": @,
+            ""quantity"": $
+        }
+    ]
+}"	Codigo da resposta e status 400 bad request			PASSED
+					
+					
+					
+	Enviar requisição Post com um valor inteiro com muitos dígitos ''2222222222'' no parametro quantity 	
+  RE:Codigo da resposta e status 400 bad request	 
+RR:codigo da resposta e status 200 OK	https://gabriellesprint2.atlassian.net/browse/GAB-41	FAILED
+					
+					
+
+  
+				
+					
+				
